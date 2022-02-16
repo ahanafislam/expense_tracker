@@ -10,10 +10,17 @@ function getInputValue(id) {
     return inputValue;
 }
 
+// Function For Calculate Balance
+function getBalance(expenses){
+    const income = getInputValue('input-income');
+    const balance = income - expenses;
+
+    return balance;
+}
+
 // EventListener For Calculate Button 
 document.getElementById('calculate-btn').addEventListener('click', function(){
     // Get All Value from input
-    const income = getInputValue('input-income');
     const foodCost = getInputValue('input-food-cost');
     const rentCost = getInputValue('input-rent-cost');
     const clothesCost = getInputValue('input-clothes-cost');
@@ -23,8 +30,24 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
     const totalExpensesValue = foodCost + rentCost + clothesCost;
     totalExpensesUI.innerText = totalExpensesValue;
 
-    // Calculate Balance
+    // Calculate Balance And Show In UI
     const balanceUI = document.getElementById('balance');
-    const balanceValue = income - totalExpensesValue;
-    balanceUI.innerText = balanceValue;
+    balanceUI.innerText = getBalance(totalExpensesValue);
+});
+
+// Event Listener For Saving Amount
+document.getElementById('save-btn').addEventListener('click', function() {
+    const income = getInputValue('input-income');
+    // Calculate Saving Amount
+    const save = parseInt(getInputValue('save-input'))/100;
+    const savingAmount = income * save;
+    const savingAmountUI = document.getElementById('saving-amount');
+    savingAmountUI.innerText = savingAmount;
+
+    // Calculate Remaining Balance And Display In Ui
+    const remainingBalanceUI = document.getElementById('remaining-balance');
+    const totalExpense = parseFloat(document.getElementById('total-expenses').innerText)
+    const remainingBalance = getBalance(totalExpense) - savingAmount;
+
+    remainingBalanceUI.innerText = remainingBalance;
 });
