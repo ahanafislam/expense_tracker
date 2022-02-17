@@ -69,7 +69,7 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
         errorMessage("Income: "+ income +" is wrong input! Try with positive number");
     }
     else if(income == 0) {
-        errorMessage("Please enter your income as positive number for calculating.");
+        errorMessage("Please enter your income amount for calculating.");
     }
     else if(income < totalExpensesValue) {
         errorMessage("Your Expense Can't be more then your income.");
