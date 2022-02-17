@@ -59,8 +59,17 @@
                 <!-- Start Calculate Result Section -->
                 <div class="text-center">
                     <button id="calculate-btn" class="btn btn-primary mt-3 px-4">Calculate</button>
-                    <h5 class="mt-3">Total Expenses: <span id="total-expenses">0</span></h5>
-                    <h5 class="mt-3">Balance: <span id="balance">0</span></h5>
+                    <!-- Result Show -->
+                    <div id="result">
+                        <h5 class="mt-3">Total Expenses: <span id="total-expenses">0</span></h5>
+                        <h5 class="mt-3">Balance: <span id="balance">0</span></h5>
+                    </div>
+
+                    <!-- Start Error Message Section -->
+                    <div id="error-message" class="alert alert-danger mt-3" role="alert">
+                        <span></span><i onclick="closeBtn('error-message')" class="fa-solid fa-xmark mx-2"></i>
+                    </div>
+                    <!-- End Error Message Section -->
                 </div>
                 <!-- End Calculate Result Section -->
                 <!-- Start Saving Section -->

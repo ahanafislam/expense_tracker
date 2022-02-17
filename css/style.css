@@ -10,3 +10,12 @@ body {
 h1{
     font-family: 'Roboto Mono', monospace;
 }
+
+#error-message {
+    display: none;
+}
+
+/* For Alert Clost Button */
+.fa-solid {
+    cursor: pointer;
+}
