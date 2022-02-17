@@ -21,11 +21,14 @@
     
     <!-- Start Main Section -->
     <main class="container">
+        <!-- Start Error Message Section -->
+        <div id="string-error" class="alert alert-danger mt-3 text-center" role="alert">
+            <span>Only number type inputs are allowed</span><i onclick="closeBtn('string-error')" class="fa-solid fa-xmark mx-2"></i>
+        </div>
+        <!-- End Error Message Section -->
         <div class="row row-cols-md-2 g-5 p-3">
             <!-- Start Side Image Section-->
-            <div>
-                <img src="img/mobile-pic.jpg" class="img-fluid">
-            </div>
+            <img src="img/mobile-pic.jpg" class="img-fluid">
             <!-- End Side Image Section -->
 
             <!-- Start Calculation Section -->
@@ -34,26 +37,26 @@
                 <div class="mb-3 row">
                     <label for="input-income" class="col-3 col-form-label">Income:</label>
                     <div class="col">
-                      <input type="number" class="form-control" id="input-income" placeholder="Enter Your Income">
+                      <input type="text" class="form-control" id="input-income" placeholder="Enter Your Income">
                     </div>
                 </div>
                 <h5 class="mt-2">Expense</h5>
                 <div class="mb-3 row">
                     <label for="input-food-cost" class="col-3 col-form-label">Food:</label>
                     <div class="col">
-                      <input type="number" class="form-control" id="input-food-cost" placeholder="Enter Your Food Cost">
+                      <input type="text" class="form-control" id="input-food-cost" placeholder="Enter Your Food Cost">
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="input-rent-cost" class="col-3 col-form-label">Rent:</label>
                     <div class="col">
-                      <input type="number" class="form-control" id="input-rent-cost" placeholder="Enter Your Rent Cost">
+                      <input type="text" class="form-control" id="input-rent-cost" placeholder="Enter Your Rent Cost">
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="input-clothes-cost" class="col-3 col-form-label">Clothes:</label>
                     <div class="col">
-                      <input type="number" class="form-control" id="input-clothes-cost" placeholder="Enter Your Clothes Cost">
+                      <input type="text" class="form-control" id="input-clothes-cost" placeholder="Enter Your Clothes Cost">
                     </div>
                 </div>
                 <!-- Start Calculate Result Section -->
@@ -76,7 +79,7 @@
                 <div class="mb-3 row row-cols-4 gx-0 mt-3">
                     <label for="input-save" class="col-form-label">Save:</label>
                     <div class="">
-                      <input type="number" class="form-control" id="save-input" value="0">
+                      <input type="text" class="form-control" id="save-input" value="0">
                     </div>
                     <div class="text-center">%</div>
                     <div class="">
@@ -90,7 +93,7 @@
                     </div>
                     <!-- Start Error Message Section -->
                     <div id="saving-error-message" class="alert alert-danger mt-3" role="alert">
-                        <span>You can't save more than your balance</span><i onclick="closeBtn('saving-error-message')" class="fa-solid fa-xmark mx-2"></i>
+                        <span></span><i onclick="closeBtn('saving-error-message')" class="fa-solid fa-xmark mx-2"></i>
                     </div>
                     <!-- End Error Message Section -->
                 </div>
