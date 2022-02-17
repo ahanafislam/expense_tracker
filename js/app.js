@@ -33,10 +33,6 @@ function getBalance(expenses){
     if(income < 0){
         errorMessage("Income "+ income +" is wrong input! Try with positive number");
     }
-    // Error Message for over expense
-    else if(balance < 0) {
-        errorMessage("Your Expense Can't more then your income.");
-    }
 
     return balance;
 }
@@ -44,12 +40,14 @@ function getBalance(expenses){
 // EventListener For Calculate Button 
 document.getElementById('calculate-btn').addEventListener('click', function(){
     // Get All Value from input
+    const income = getInputValue('input-income');
     const foodCost = getInputValue('input-food-cost');
     const rentCost = getInputValue('input-rent-cost');
     const clothesCost = getInputValue('input-clothes-cost');
     const resultUI = document.getElementById('result');
+    resultUI.style.display = 'block';
 
-    // Error Message For Negative Expense Value
+    // Error Message For Negative Expense Amount
     if(foodCost < 0 || rentCost < 0 || clothesCost < 0){
         errorMessage("Your Expenses Can't be any Nagative amount")
     }
@@ -58,12 +56,16 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
     const totalExpensesUI = document.getElementById('total-expenses');
     const totalExpensesValue = foodCost + rentCost + clothesCost;
     totalExpensesUI.innerText = totalExpensesValue;
-    resultUI.style.display = 'block';
 
     // Calculate Balance And Show In UI
     const balanceUI = document.getElementById('balance');
     const balanceValue = getBalance(totalExpensesValue);
     balanceUI.innerText = balanceValue;
+
+    // Error Message for over expense
+    if(income < totalExpensesValue) {
+        errorMessage("Your Expense Can't more then your income.");
+    }
 });
 
 // Event Listener For Saving Amount
@@ -81,4 +83,17 @@ document.getElementById('save-btn').addEventListener('click', function() {
     const remainingBalance = getBalance(totalExpense) - savingAmount;
 
     remainingBalanceUI.innerText = remainingBalance;
+
+    // Error message for saving amount
+    const balance = getBalance(totalExpense);
+    const savingAmountResultUI = document.getElementById('saving-amount-result');
+    const savingErrorMessageUI = document.getElementById('saving-error-message')
+    if(balance < savingAmount) {
+        savingErrorMessageUI.style.display = 'block';
+        savingAmountResultUI.style.display = 'none';
+    }
+    else {
+        savingErrorMessageUI.style.display = 'none';
+        savingAmountResultUI.style.display = 'block';
+    }
 });

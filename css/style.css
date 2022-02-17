@@ -11,7 +11,7 @@ h1{
     font-family: 'Roboto Mono', monospace;
 }
 
-#error-message {
+#error-message, #saving-error-message {
     display: none;
 }
 
